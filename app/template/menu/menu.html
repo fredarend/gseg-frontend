@@ -1,0 +1,83 @@
+<div>
+	<section class="sidebar" ng-controller="DashboardCtrl as vm">
+		<!-- div class="user-panel" ng-include="'/template/menu/user.html'"></div -->
+		<!-- div ng-include="'/template/menu/searchForm.html'"></div -->
+		<ul class="sidebar-menu">
+			<li class="header">NAVEGAÇÃO PRINCIPAL</li>
+			<li>
+				<a ui-sref="dashboard">
+					<i class="fa fa-dashboard"></i><span> Início</span>
+				</a>
+			</li>
+
+			<li>
+				<a ui-sref="acoesCriminosas">
+					<i class="fa fa-exclamation-triangle"></i><span> Ações Criminosas </span>
+				</a>
+			</li>
+
+			<li>
+				<a ui-sref="alertas">
+					<i class="fa fa-bell"></i><span> Alertas</span>
+				</a>
+			</li>
+
+			<li>
+				<a ui-sref="manutencao">
+					<i class="fa fa-cogs"></i><span> Manutenção</span>
+				</a>
+			</li>
+
+			<li class="header">CADASTROS</li>
+			<li class="treeview">
+			   <a href>
+			        <i class="fa fa-edit"></i> <span> RH</span>
+			        <i class="fa fa-angle-left pull-right"></i>
+			  </a>
+			  <ul class="treeview-menu">
+			    <li>
+			      <a ui-sref="empresaResponsavel"><i class="fa fa-building"></i> Empresas Terceirizadas</a>
+			    </li>
+			  </ul>
+			</li>
+
+			<li class="treeview">
+			   <a href>
+			        <i class="fa fa-edit"></i> <span> Equipamentos</span>
+			        <i class="fa fa-angle-left pull-right"></i>
+			  </a>
+			  <ul class="treeview-menu">
+			    <li>
+			      <a ui-sref="empresaResponsavel"><i class="fa fa-building"></i> Portas</a>
+			    </li>
+			    <li>
+			      <a ui-sref="empresaResponsavel"><i class="fa fa-building"></i> ATM's</a>
+			    </li>
+			    <li>
+			      <a ui-sref="empresaResponsavel"><i class="fa fa-building"></i> CFTV</a>
+			    </li>
+			  </ul>
+			</li>
+
+			<li ng-if="user_nivel === 'presidente_cooperativa'">
+				<a ui-sref="unidades">
+					<i class="fa fa-university"></i><span> Unidades</span>
+				</a>
+			</li>
+
+			<li class="header">RELATÓRIOS</li>
+
+			<li class="treeview">
+			   <a href>
+			        <i class="fa fa-area-chart"></i> <span>Relatórios</span>
+			        <i class="fa fa-angle-left pull-right"></i>
+			  </a>
+			  <ul class="treeview-menu">
+			    <li>
+			      <a ui-sref="acoesCriminosas"><i class="fa fa-bell"></i>  Ações Criminosas</a>
+			    </li>
+			  </ul>
+			</li>
+		</ul>
+	</section>
+</div>

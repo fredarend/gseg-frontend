@@ -1,0 +1,32 @@
+<div class="box-body">
+  <div class="col-md-12">
+  
+    <div class="col-md-12" ng-if="alertas.length != 0">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Tipo de Alerta</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in alertas"> 
+              <td>{{:: item.tipoAlerta}}</td>
+              <td style="width:100px;">
+                <button class="btn btn-warning" ng-click="showTabUpdate(billingCycle)"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger" ng-click="showTabDelete(billingCycle)"><i class="fa fa-trash-o"></i></button>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-12" ng-if="alertas.length === 0">
+      <h4 align="center">Não há nenhum alerta cadastrado.</h4>
+    </div>
+
+  </div>
+
+</div>
+
+

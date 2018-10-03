@@ -1,0 +1,46 @@
+/* ALL */
+
+.margin-bottom-10 {
+	margin-bottom: 10px !important;
+}
+.margin-right-10 {
+	margin-right: 10px !important;
+}
+.padding-bottom-10 {
+	padding-bottom: 10px !important;
+}
+.padding-top-10 {
+	padding-top: 10px !important;
+}
+.padding-right-10 {
+	padding-right: 10px !important;
+}
+.padding-left-10 {
+	padding-left: 10px !important;
+}
+
+/* LOGIN */ 
+
+html, .wrapper {
+	/* background-image: url("http://www.freepptbackgrounds.net/wp-content/uploads/2013/01/Light-Blue-Effect-PPT-Backgrounds.jpg") !important; */
+	background-size: cover;
+	-webkit-background-size: cover; /* SAFARI / CHROME */
+	-moz-background-size: cover; /* FIREFOX */
+	-ms-background-size: cover; /* IE */
+	-o-background-size: cover; /* OPERA */
+	.login-box {
+		margin: 14% auto !important;
+		.login-box-body { 
+			background-color: #eee;
+			background: #fff;
+			border-radius: 2px;
+		  	box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+		}	
+	}
+}
+
+/* DASHBOARD */
+
+.small-box .icon {
+	color: rgba(0,0,0,0.07) !important;
+}

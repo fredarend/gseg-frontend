@@ -1,0 +1,40 @@
+<div class="box-body">
+
+  <div class="row margin-bottom-10">
+    <div class="col-md-12">
+      <leaflet class="leaflet_list_map" defaults="defaults_list" lf-center="center_list" markers="markers_list" width="100%" height="480px"></leaflet>
+    </div>
+  </div>
+
+  <hr></hr>
+
+  <div class="row">
+    <div class="col-md-12" ng-if="unidades.length != 0">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Unidade</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="unidade in unidades"> 
+              <td>{{:: unidade.unidade}}</td>
+              <td>{{:: unidade.bairro}}</td>
+              <td>{{:: unidade.cidade}}</td>
+              <td>{{:: unidade.uf}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-12" ng-if="unidades.length === 0">
+      <h4 align="center">Não há nenhuma unidade cadastrada.</h4>
+    </div>
+  </div>
+
+
+</div>
+
+

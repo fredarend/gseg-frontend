@@ -1,0 +1,37 @@
+<div class="box-body">
+
+  <div class="col-md-12" ng-if="manutencao.length != 0">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Equipamento</th>
+          <th>Empresa Terceirizada</th>
+          <th>Defeito</th>
+          <th>Cooperativa</th>
+          <th>PA</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat="item in manutencao"> 
+            <td>{{:: item.equipamento}}</td>
+            <td>{{:: item.empresaResponsavel}}</td>
+            <td>{{:: item.defeito}}</td>
+            <td>{{:: item.user_cooperativa}}</td>
+            <td>{{:: item.user_pa}}</td>
+            <td style="width:100px;">
+              <button class="btn btn-warning" ng-click="showTabUpdate(billingCycle)"><i class="fa fa-pencil"></i></button>
+              <button class="btn btn-danger" ng-click="showTabDelete(billingCycle)"><i class="fa fa-trash-o"></i></button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-12" ng-if="manutencao.length === 0">
+    <h4 align="center">Não há nenhuma manutenção cadastrado.</h4>
+  </div>
+
+
+</div>
+
+

@@ -1,0 +1,935 @@
+<div role="form">
+  <div class="box-body">
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <label>Tipo de Ação:</label>
+        <div class="form-group">
+          <select class="form-control" ng-model="acaoCriminosa.tipoAcao">
+            <option value="" disabled>
+              Selecione uma Ação
+            </option>
+            <option ng-repeat="item in tipoAcoes" value="{{item.name}}">
+              {{item.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <label>Fonte:</label>
+        <div class="form-group">
+          <select class="form-control" ng-model="acaoCriminosa.fonte">
+            <option value="" disabled>
+              Selecione uma Fonte
+            </option>
+            <option ng-repeat="item in fonte" value="{{item.name}}">
+              {{item.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <field id="billingCycleClientId" label="Número do BO" model="acaoCriminosa.numeroBo"
+         placeholder="Informe o Número do BO" grid="12 6 6" type="number" readonly="tabDelete"></field>
+
+    <!-- Date and time range -->
+    <div class="col-xs-12 col-md-3 col-lg-3">
+      <div class="form-group">
+        <label>Data</label>
+        <div class="input-group">
+          <input ng-model="acaoCriminosa.data" type="text" class="form-control pull-right" ui-date-mask="DD/MM/YYYY" placeholder="Informe a data">
+        </div>
+        <span style="font-size: 11px; color: gray;">Somente números, formato dd/mm/AAAA </span>
+      </div>
+    </div>
+
+    <field id="billingCycleType" label="Relato da Ocorrência" model="acaoCriminosa.relato"
+         placeholder="Relate a ocorrência" grid="12 6 6" readonly="tabDelete"></field>
+
+    <field id="billingCycleType" label="Módus" model="acaoCriminosa.modus"
+         placeholder="Especifique o modo de operação" grid="12 6 6" readonly="tabDelete"></field>
+
+    <field id="billingCycleType" label="Falhas Apuradas" model="acaoCriminosa.falhasApuradas"
+         placeholder="Especifique as falhas apuradas" grid="12 6 6" readonly="tabDelete"></field>
+ 
+    <div class="col-xs-12">
+      <fieldset>
+        <legend>Suspeitos</legend>
+      </fieldset>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <label>Há Suspeitos?</label>
+        <div class="form-group">
+          <input type="radio" ng-model="haSuspeitos" value="sim"> Sim <br> 
+          <input type="radio" ng-model="haSuspeitos" value="nao" > Não
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12" ng-show="haSuspeitos == 'sim'">
+      <fieldset>
+        <legend>Suspeito</legend>
+      </fieldset>
+    </div>    
+
+    <div class="col-xs-12" ng-show="haSuspeitos == 'sim'">
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Sexo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos.sexo">
+              <option value="" disabled>
+                Selecione um sexo
+              </option>
+              <option value="Masculino">
+                Masculino
+              </option>
+              <option value="Feminino">
+                Feminino
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Idade Aproximada:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos.idade">
+              <option value="" disabled>
+                Selecione a idade
+              </option>
+              <option ng-repeat="item in idadeSuspeito" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Etnia:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos.etnia">
+              <option value="" disabled>
+                Selecione a etnia.
+              </option>
+              <option ng-repeat="item in etnia" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Cumprimento do Cabelo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos.cumprimentoCabelo">
+              <option value="" disabled>
+                Selecione o cumprimento do cabelo.
+              </option>
+              <option ng-repeat="item in cumprimentoCabelo" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Cor do Cabelo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos.corCabelo">
+              <option value="" disabled>
+                Selecione a cor do cabelo.
+              </option>
+              <option ng-repeat="item in corCabelo" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Altura Aproximada:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos.altura">
+              <option value="" disabled>
+                Selecione o peso
+              </option>
+              <option ng-repeat="item in alturaSuspeito" value="{{item.name}}">
+                {{item.name}} cm
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Peso:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos.peso">
+              <option value="" disabled>
+                Selecione o peso
+              </option>
+              <option ng-repeat="item in pesoSuspeito" value="{{item.name}}">
+                {{item.name}} kg
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Estava armado?</label>
+          <div class="form-group">
+            <input type="radio" ng-model="suspeitoArmado" value="sim"> Sim <br> 
+            <input type="radio" ng-model="suspeitoArmado" value="nao"> Não
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4" ng-show="suspeitoArmado == 'sim'">
+        <div class="form-group">
+          <label>Tipo de arma:</label>
+          <div class="form-group">
+            <input type="radio" ng-model="acaoCriminosa.suspeitos.tipoArma" value="Arma Branca"> Arma Branca <br> 
+            <input type="radio" ng-model="acaoCriminosa.suspeitos.tipoArma" value="Arma de Fogo"> Arma de Fogo
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4" ng-show="acaoCriminosa.suspeitos.tipoArma == 'Arma de Fogo' && suspeitoArmado == 'sim'">
+        <div class="form-group">
+          <label>Arma:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos.armaDeFogo">
+              <option value="" disabled>
+                Selecione uma arma
+              </option>
+              <option ng-repeat="item in armaSuspeito" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    <field id="billingCycleType" label="Observações" model="acaoCriminosa.suspeitos.observacao"
+         placeholder="Observações" grid="12 12 12" readonly="tabDelete"></field>
+    <span class="col-md-12" style="font-size: 11px; color: gray; margin-top: -5px; margin-bottom: 10px;">Exemplo: Suspeito estava mancando, suspeito possuia uma tatuagem no pescoço.</span>
+
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <label>Adicionar mais um suspeito?</label>
+        <div class="form-group">
+          <input type="radio" ng-model="haSuspeitos2" value="sim"> Sim <br> 
+          <input type="radio" ng-model="haSuspeitos2" value="nao"> Não
+        </div>
+      </div>
+    </div>
+
+    </div>    
+
+    <div class="col-xs-12" ng-show="haSuspeitos == 'sim' && haSuspeitos2 == 'sim'">
+      <fieldset>
+        <legend>Suspeito 2</legend>
+      </fieldset>
+    </div>    
+
+    <div class="col-xs-12" ng-show="haSuspeitos == 'sim' && haSuspeitos2 == 'sim'">
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Sexo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos2.sexo">
+              <option value="" disabled>
+                Selecione um sexo
+              </option>
+              <option value="Masculino">
+                Masculino
+              </option>
+              <option value="Feminino">
+                Feminino
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Idade Aproximada:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos2.idade">
+              <option value="" disabled>
+                Selecione a idade
+              </option>
+              <option ng-repeat="item in idadeSuspeito" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>      
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Etnia:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos2.etnia">
+              <option value="" disabled>
+                Selecione a etnia.
+              </option>
+              <option ng-repeat="item in etnia" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Cumprimento do Cabelo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos2.cumprimentoCabelo">
+              <option value="" disabled>
+                Selecione o cumprimento do cabelo.
+              </option>
+              <option ng-repeat="item in cumprimentoCabelo" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Cor do Cabelo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos2.corCabelo">
+              <option value="" disabled>
+                Selecione a cor do cabelo.
+              </option>
+              <option ng-repeat="item in corCabelo" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Altura Aproximada:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos2.altura">
+              <option value="" disabled>
+                Selecione o peso
+              </option>
+              <option ng-repeat="item in alturaSuspeito" value="{{item.name}}">
+                {{item.name}} cm
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Peso:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos2.peso">
+              <option value="" disabled>
+                Selecione o peso
+              </option>
+              <option ng-repeat="item in pesoSuspeito" value="{{item.name}}">
+                {{item.name}} kg
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Estava armado?</label>
+          <div class="form-group">
+            <input type="radio" ng-model="suspeitoArmado2" value="sim"> Sim <br> 
+            <input type="radio" ng-model="suspeitoArmado2" value="nao"> Não
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4" ng-show="suspeitoArmado2 == 'sim'">
+        <div class="form-group">
+          <label>Tipo de arma:</label>
+          <div class="form-group">
+            <input type="radio" ng-model="acaoCriminosa.suspeitos2.tipoArma" value="Arma Branca"> Arma Branca <br> 
+            <input type="radio" ng-model="acaoCriminosa.suspeitos2.tipoArma" value="Arma de Fogo"> Arma de Fogo
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4" ng-show="acaoCriminosa.suspeitos2.tipoArma == 'Arma de Fogo' && suspeitoArmado2 == 'sim'">
+        <div class="form-group">
+          <label>Arma:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos2.armaDeFogo">
+              <option value="" disabled>
+                Selecione uma arma
+              </option>
+              <option ng-repeat="item in armaSuspeito" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    <field id="billingCycleType" label="Observações" model="acaoCriminosa.suspeitos2.observacao"
+         placeholder="Observações" grid="12 12 12" readonly="tabDelete"></field>
+    <span class="col-md-12" style="font-size: 11px; color: gray; margin-top: -5px; margin-bottom: 10px;">Exemplo: Suspeito estava mancando, suspeito possuia uma tatuagem no pescoço.</span>
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <label>Adicionar mais um suspeito?</label>
+        <div class="form-group">
+          <input type="radio" ng-model="haSuspeitos3" value="sim"> Sim <br> 
+          <input type="radio" ng-model="haSuspeitos3" value="nao"> Não
+        </div>
+      </div>
+    </div>
+
+    </div>   
+
+
+    <div class="col-xs-12" ng-show="haSuspeitos == 'sim' && haSuspeitos2 == 'sim' && haSuspeitos3 == 'sim'">
+      <fieldset>
+        <legend>Suspeito 3</legend>
+      </fieldset>
+    </div>    
+
+    <div class="col-xs-12" ng-show="haSuspeitos == 'sim' && haSuspeitos2 == 'sim' && haSuspeitos3 == 'sim'">
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Sexo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos3.sexo">
+              <option value="" disabled>
+                Selecione um sexo
+              </option>
+              <option value="Masculino">
+                Masculino
+              </option>
+              <option value="Feminino">
+                Feminino
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Idade Aproximada:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos3.idade">
+              <option value="" disabled>
+                Selecione a idade
+              </option>
+              <option ng-repeat="item in idadeSuspeito" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Etnia:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos3.etnia">
+              <option value="" disabled>
+                Selecione a etnia.
+              </option>
+              <option ng-repeat="item in etnia" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Cumprimento do Cabelo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos3.cumprimentoCabelo">
+              <option value="" disabled>
+                Selecione o cumprimento do cabelo.
+              </option>
+              <option ng-repeat="item in cumprimentoCabelo" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Cor do Cabelo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos3.corCabelo">
+              <option value="" disabled>
+                Selecione a cor do cabelo.
+              </option>
+              <option ng-repeat="item in corCabelo" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Altura Aproximada:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos3.altura">
+              <option value="" disabled>
+                Selecione o peso
+              </option>
+              <option ng-repeat="item in alturaSuspeito" value="{{item.name}}">
+                {{item.name}} cm
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Peso:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos3.peso">
+              <option value="" disabled>
+                Selecione o peso
+              </option>
+              <option ng-repeat="item in pesoSuspeito" value="{{item.name}}">
+                {{item.name}} kg
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Estava armado?</label>
+          <div class="form-group">
+            <input type="radio" ng-model="suspeitoArmado3" value="sim"> Sim <br> 
+            <input type="radio" ng-model="suspeitoArmado3" value="nao"> Não
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4" ng-show="suspeitoArmado3 == 'sim'">
+        <div class="form-group">
+          <label>Tipo de arma:</label>
+          <div class="form-group">
+            <input type="radio" ng-model="acaoCriminosa.suspeitos3.tipoArma" value="Arma Branca"> Arma Branca <br> 
+            <input type="radio" ng-model="acaoCriminosa.suspeitos3.tipoArma" value="Arma de Fogo"> Arma de Fogo
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4" ng-show="acaoCriminosa.suspeitos3.tipoArma == 'Arma de Fogo' && suspeitoArmado3 == 'sim'">
+        <div class="form-group">
+          <label>Arma:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos3.armaDeFogo">
+              <option value="" disabled>
+                Selecione uma arma
+              </option>
+              <option ng-repeat="item in armaSuspeito" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <field id="billingCycleType" label="Observações" model="acaoCriminosa.suspeitos3.observacao"
+           placeholder="Observações" grid="12 12 12" readonly="tabDelete"></field>
+      <span class="col-md-12" style="font-size: 11px; color: gray; margin-top: -5px; margin-bottom: 10px;">Exemplo: Suspeito estava mancando, suspeito possuia uma tatuagem no pescoço.</span>
+
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>Adicionar mais um suspeito?</label>
+          <div class="form-group">
+            <input type="radio" ng-model="haSuspeitos4" value="sim"> Sim <br> 
+            <input type="radio" ng-model="haSuspeitos4" value="nao"> Não
+          </div>
+        </div>
+      </div>
+
+    </div>  
+
+
+    <div class="col-xs-12" ng-show="haSuspeitos4 == 'sim' && haSuspeitos == 'sim' && haSuspeitos2 == 'sim' && haSuspeitos3 == 'sim'">
+      <fieldset>
+        <legend>Suspeito 4</legend>
+      </fieldset>
+    </div>    
+
+    <div class="col-xs-12" ng-show="haSuspeitos4 == 'sim' && haSuspeitos == 'sim' && haSuspeitos2 == 'sim' && haSuspeitos3 == 'sim'">
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Sexo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos4.sexo">
+              <option value="" disabled>
+                Selecione um sexo
+              </option>
+              <option value="Masculino">
+                Masculino
+              </option>
+              <option value="Feminino">
+                Feminino
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Idade Aproximada:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos4.idade">
+              <option value="" disabled>
+                Selecione a idade
+              </option>
+              <option ng-repeat="item in idadeSuspeito" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Etnia:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos4.etnia">
+              <option value="" disabled>
+                Selecione a etnia.
+              </option>
+              <option ng-repeat="item in etnia" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Cumprimento do Cabelo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos4.cumprimentoCabelo">
+              <option value="" disabled>
+                Selecione o cumprimento do cabelo.
+              </option>
+              <option ng-repeat="item in cumprimentoCabelo" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Cor do Cabelo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos4.corCabelo">
+              <option value="" disabled>
+                Selecione a cor do cabelo.
+              </option>
+              <option ng-repeat="item in corCabelo" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Altura Aproximada:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos4.altura">
+              <option value="" disabled>
+                Selecione o peso
+              </option>
+              <option ng-repeat="item in alturaSuspeito" value="{{item.name}}">
+                {{item.name}} cm
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Peso:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos4.peso">
+              <option value="" disabled>
+                Selecione o peso
+              </option>
+              <option ng-repeat="item in pesoSuspeito" value="{{item.name}}">
+                {{item.name}} kg
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Estava armado?</label>
+          <div class="form-group">
+            <input type="radio" ng-model="suspeitoArmado4" value="sim"> Sim <br> 
+            <input type="radio" ng-model="suspeitoArmado4" value="nao"> Não
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4" ng-show="suspeitoArmado4 == 'sim'">
+        <div class="form-group">
+          <label>Tipo de arma:</label>
+          <div class="form-group">
+            <input type="radio" ng-model="acaoCriminosa.suspeitos4.tipoArma" value="Arma Branca"> Arma Branca <br> 
+            <input type="radio" ng-model="acaoCriminosa.suspeitos4.tipoArma" value="Arma de Fogo"> Arma de Fogo
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xs-12 col-md-4 col-lg-4" ng-show="acaoCriminosa.suspeitos4.tipoArma == 'Arma de Fogo' && suspeitoArmado4 == 'sim'">
+        <div class="form-group">
+          <label>Arma:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.suspeitos4.armaDeFogo">
+              <option value="" disabled>
+                Selecione uma arma
+              </option>
+              <option ng-repeat="item in armaSuspeito" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    <field id="billingCycleType" label="Observações" model="acaoCriminosa.suspeitos4.observacao"
+         placeholder="Observações" grid="12 12 12" readonly="tabDelete"></field>
+    <span class="col-md-12" style="font-size: 11px; color: gray; margin-top: -5px; margin-bottom: 10px;">Exemplo: Suspeito estava mancando, suspeito possuia uma tatuagem no pescoço.</span>
+    </div>  
+
+    <hr>
+
+    <div class="col-xs-12">
+      <fieldset>
+        <legend>Veículos</legend>
+      </fieldset>
+    </div>
+
+    <div class="col-xs-12 col-md-12 col-lg-12">
+      <div class="form-group">
+        <label>Há Veículo Suspeito?</label>
+        <div class="form-group">
+          <input type="radio" ng-model="haVeiculo" value="sim"> Sim <br> 
+          <input type="radio" ng-model="haVeiculo" value="nao"> Não
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="haVeiculo == 'sim'">
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Tipo do Veículo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.veiculos.tipo" ng-change="getMarcasFipe()">
+              <option value="" disabled>
+                Selecione o tipo do veículo
+              </option>
+              <option value="carros">
+                Carro
+              </option>
+              <option value="motos">
+                Moto
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Marca do Veículo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.veiculos.marca" ng-change="getModelosFipe()">
+              <option value="" disabled>
+                Selecione a marca do veículo
+              </option>
+              <option ng-repeat="item in marcasFipe" value="{{item.id}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Modelo do Veículo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.veiculos.modelo" ng-change="getAnoFipe()">
+              <option value="" disabled>
+                Selecione o modelo do veículo
+              </option>
+              <option ng-repeat="item in modelosFipe" value="{{item.id}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Ano do Veículo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.veiculos.ano">
+              <option value="" disabled>
+                Selecione o ano do veículo
+              </option>
+              <option ng-repeat="item in anoFipe" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label>Cor do Veículo:</label>
+          <div class="form-group">
+            <select class="form-control" ng-model="acaoCriminosa.veiculos.cor">
+              <option value="" disabled>
+                Selecione a cor do veículo
+              </option>
+              <option ng-repeat="item in corVeiculo" value="{{item.name}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-3 col-lg-3">
+        <div class="form-group">
+          <label>Placa</label>
+          <input class="form-control" ng-model="acaoCriminosa.veiculos.placa" type="text" class="form-control pull-right" placeholder="Informe a placa do veículo." ui-br-car-plate-mask>
+        </div>
+      </div>
+
+      <field id="billingCycleType" label="Observações" model="acaoCriminosa.veiculos.observacao"
+           placeholder="Observações" grid="12 12 12" readonly="tabDelete"></field>
+      <span class="col-md-12" style="font-size: 11px; color: gray; margin-top: -5px; margin-bottom: 10px;">Exemplo: Veículo com o para-brisa trincado.</span>
+    </div>
+
+    <hr>
+
+    <div class="col-xs-12">
+      <fieldset>
+        <legend>Anexos</legend>
+      </fieldset>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <div class="input-group">
+          <label for="exampleInputFile">Anexar um Boletim de Ocorrência</label>
+          <input type="file" name="bo" ng-model="acaoCriminosa.bo" id="bo" ngf-select ngf-max-size="25MB">
+          <p class="help-block">Deve ser no formato PDF.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <div class="input-group">
+          <label for="exampleInputFile">Anexar Imagens</label>
+          <input type="file" id="exampleInputFile">
+
+          <p class="help-block">Deve ser no formato JPG.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>    
+
+    <div class="col-xs-12">
+      <fieldset>
+        <legend>Local</legend>
+      </fieldset>
+    </div>
+
+      <div class="col-xs-12">
+
+        <label>Arraste o marcador para definir o local do acontecimento.</label><br><span style="font-size: 13px">Local padrão é: Sicoob Crediauc Matriz</span>
+
+        <leaflet style="margin-top: 10px" class="leaflet_list_map" defaults="defaults2" lf-center="center2" ng-init="marcarPosicaoAcao()"  markers="markers2" width="100%" height="480px"></leaflet>
+      </div>
+
+    <hr>
+
+  </div>
+
+  <div class="box-footer">
+    <button class="btn btn-primary" ng-click="cadastrarAcaoCriminosa()"
+         ng-if="tabCreate">Incluir</button>
+    <button class="btn btn-info" ng-click="updateBillingCycle()"
+         ng-if="tabUpdate">Alterar</button>
+    <button class="btn btn-danger" ng-click="deleteBillingCycle()"
+         ng-if="tabDelete">Excluir</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancelar</button>
+  </div>
+</div>

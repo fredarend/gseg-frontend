@@ -1,0 +1,17 @@
+html {
+  background-color: #ecf0f5;
+}
+
+.main-footer {
+  position: fixed;
+  bottom:0px;
+  width:100%;
+}
+
+#toast-container {
+  top: 70px;
+}
+
+.leaflet_list_map {
+    border: 1px #c4c3be solid;
+}

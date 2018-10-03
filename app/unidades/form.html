@@ -1,0 +1,89 @@
+<div role="form">
+  <div class="box-body">
+
+    <div class="col-md-12">
+      <fieldset>
+        <legend>Informações Gerais</legend>
+      </fieldset>
+    </div>
+
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <label>Agência</label>
+        <input class="form-control" ng-model="unidade.unidade" type="text" class="form-control pull-right" ng-blur="replaceSpaces()" placeholder="Informe o nome da agência." required>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <div class="form-group">
+        <label>Cooperativa</label>
+        <div class="form-group">
+          <select class="form-control" ng-model="unidade.cooperativa">
+            <option value="" disabled>
+              Selecione a Cooperativa
+            </option>
+            <option value={{sicoob_maxicredito}}>
+              Sicoob Maxicrédito
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <fieldset>
+        <legend>Endereço</legend>
+      </fieldset>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>CEP</label>
+        <input class="form-control" ng-model="unidade.cep" type="text" class="form-control pull-right" ng-blur="buscarCEP()" placeholder="Informe o CEP" ui-br-cep-mask required>
+      </div>
+    </div>
+
+    <field id="billingCycleType" label="Logradouro" model="unidade.logradouro"
+         placeholder="Logradouro" grid="12 6 6" readonly="tabDelete"></field>
+
+    <field id="billingCycleType" label="Número" model="unidade.numero"
+         placeholder="Número" grid="12 6 6" readonly="tabDelete"></field>
+
+    <field id="billingCycleType" label="Bairro" model="unidade.bairro"
+         placeholder="Bairro" grid="12 6 6" readonly="tabDelete"></field>
+
+    <field id="billingCycleType" label="Cidade" model="unidade.cidade"
+         placeholder="Cidade" grid="12 6 6" readonly="tabDelete"></field>
+
+    <field id="billingCycleType" label="Estado" model="unidade.uf"
+         placeholder="Estado" grid="12 6 6" readonly="tabDelete"></field>
+
+    <hr>    
+
+    <div class="col-xs-12">
+      <fieldset>
+        <legend>Local</legend>
+      </fieldset>
+    </div>
+
+      <div class="col-xs-12">
+
+        <label>Arraste o marcador para definir a localização exata da unidade.</label>
+
+        <leaflet style="margin-top: 10px" class="leaflet_list_map" defaults="defaults" lf-center="center" ng-init="marcarUnidade(cep)"  markers="markers" width="100%" height="480px"></leaflet>
+      </div>
+
+    <hr>
+
+  </div>
+
+  <div class="box-footer">
+    <button class="btn btn-primary" ng-click="cadastrarUnidade()"
+         ng-if="tabCreate">Incluir</button>
+    <button class="btn btn-info" ng-click="updateBillingCycle()"
+         ng-if="tabUpdate">Alterar</button>
+    <button class="btn btn-danger" ng-click="deleteBillingCycle()"
+         ng-if="tabDelete">Excluir</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancelar</button>
+  </div>
